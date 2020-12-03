@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"regexp"
 	"strings"
 )
 
@@ -35,6 +36,8 @@ func (f *Field) Set(x, y int, v string) {
 
 // NewField creates a new field from raw string input
 func NewField(input string) *Field {
+	re := regexp.MustCompile(`\r?\n`)
+	input = re.ReplaceAllString(input, "\n")
 	rows := strings.Split(input, "\n")
 
 	rowList := make([][]string, len(rows))
