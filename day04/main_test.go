@@ -41,3 +41,13 @@ func TestCountValidPasswordsPartTwo2(t *testing.T) {
 		t.Errorf("countValidPassportsPartTwo(testinput3.txt) = %v, expected %v", output, want)
 	}
 }
+
+func TestCountValidPasswordsPartTwo3(t *testing.T) {
+	passports := readInput("./input.txt")
+	want := 111
+	output := countValidPassportsPartTwo(passports)
+
+	if want != output {
+		t.Errorf("countValidPassportsPartTwo(input.txt) = %v, expected %v", output, want)
+	}
+}
