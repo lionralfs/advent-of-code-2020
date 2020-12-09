@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"regexp"
 	"strconv"
 	"strings"
 )
@@ -10,11 +11,14 @@ import (
 func readInput(filename string) []int {
 	bytes, _ := ioutil.ReadFile(filename)
 
-	input := strings.Split(string(bytes), "\n")
+	// for windows
+	re := regexp.MustCompile(`\r?\n`)
+	input := re.ReplaceAllString(string(bytes), "\n")
+	list := strings.Split(input, "\n")
 
-	result := make([]int, len(input))
+	result := make([]int, len(list))
 
-	for i, line := range input {
+	for i, line := range list {
 		num, _ := strconv.Atoi(line)
 
 		result[i] = num
