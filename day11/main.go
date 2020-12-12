@@ -185,7 +185,7 @@ func NewField(input string) *Field {
 }
 
 func main() {
-	fmt.Printf("[Part2]: %v\n", partOne("./input.txt"))
+	fmt.Printf("[Part1]: %v\n", partOne("./input.txt"))
 	fmt.Printf("[Part2]: %v\n", partTwo("./input.txt"))
 }
 
