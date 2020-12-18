@@ -13,7 +13,14 @@ type Coordinate struct {
 }
 
 func main() {
-	universe1 := readInput("./input.txt")
+	part1, part2 := solve("./input.txt")
+
+	fmt.Printf("[Part1]: %v\n", part1)
+	fmt.Printf("[Part2]: %v\n", part2)
+}
+
+func solve(inputfile string) (int, int) {
+	universe1 := readInput(inputfile)
 	universe2 := universe1
 
 	for i := 1; i <= 6; i++ {
@@ -21,8 +28,7 @@ func main() {
 		universe2 = nextCycle(universe2, getNeighbors4D)
 	}
 
-	fmt.Printf("[Part1]: %v\n", len(universe1))
-	fmt.Printf("[Part2]: %v\n", len(universe2))
+	return len(universe1), len(universe2)
 }
 
 func readInput(filename string) map[Coordinate]bool {
